@@ -1,0 +1,281 @@
+/* --- GENERAL RESET --- */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+    font-family:'Lora', serif; 
+    color:#0d1b2a; /* biru tua */ 
+    overflow-x:hidden; 
+    background: url('https://png.pngtree.com/thumb_back/fh260/background/20230903/pngtree-wedding-rings-under-blue-string-and-purple-flower-image_13188635.jpg') center/cover no-repeat fixed; 
+}
+
+/* overlay tipis di seluruh halaman untuk kontras */
+body::before {
+    content:""; position:fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.2); z-index:-1;
+}
+
+/* --- COVER --- */
+.cover {
+    position:fixed; top:0; left:0; width:100%; height:100%;
+    display:flex; justify-content:center; align-items:center;
+    flex-direction:column; text-align:center;
+    z-index:1000; animation: fadeIn 1s ease-in-out;
+}
+.cover::before {
+    content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+    background: rgba(255,255,255,0.1); /* overlay tipis agar foto terlihat */
+}
+.cover-content { 
+    position:relative; 
+    z-index:1; 
+    backdrop-filter: blur(5px); 
+    background: rgba(255,255,255,0.1); /* efek kaca */
+    padding: 20px 40px;
+    border-radius: 20px;
+}
+.cover h1 { 
+    font-family:'Great Vibes', cursive; font-size:4rem; 
+    color:#0d1b2a; text-shadow: 2px 2px 6px rgba(255,255,255,0.3); 
+    animation: floatText 2s infinite; 
+}
+.cover p { font-size:1.5rem; margin-bottom:30px; color:#0d1b2a; text-shadow: 1px 1px 4px rgba(255,255,255,0.3); }
+.open-btn { background:#0d1b2a; color:#fff; padding:15px 30px; border:none; border-radius:25px; cursor:pointer; font-size:1.2rem; transition:0.3s; }
+.open-btn:hover { transform: scale(1.05); }
+
+/* --- HERO --- */
+.hero {
+    height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+    position:relative;
+}
+.hero::before {
+    content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+    background: rgba(255,255,255,0.05); /* overlay tipis untuk efek kaca */
+}
+.hero h1, .hero .subtitle, .hero .date { 
+    position:relative; z-index:1; 
+    color:#0d1b2a; 
+    backdrop-filter: blur(5px); 
+    background: rgba(255,255,255,0.1); 
+    padding:5px 15px; 
+    border-radius:10px; 
+    text-shadow: 2px 2px 6px rgba(255,255,255,0.3);
+}
+.hero h1 { font-family:'Great Vibes', cursive; font-size:4rem; animation: floatText 3s infinite; }
+.hero .subtitle, .hero .date { font-size:1.5rem; margin:10px 0; opacity:0; animation: fadeInUp 1.5s forwards; }
+
+/* --- SECTION TITLES --- */
+.section-title { 
+    font-family:'Great Vibes',cursive; font-size:3rem; margin-bottom:50px; 
+    color:#0d1b2a; text-align:center; 
+    text-shadow:1px 1px 8px rgba(255,255,255,0.2); 
+}
+
+/* --- COUPLE CARDS --- */
+.couple-container { display:flex; justify-content:center; gap:50px; flex-wrap:wrap; }
+.couple-card { background: rgba(255,255,255,0.1); padding:30px; border-radius:20px; text-align:center; backdrop-filter:blur(8px); transition: transform 0.3s; }
+.couple-card:hover { transform: translateY(-10px); }
+.couple-card img { width:200px; height:200px; border-radius:50%; object-fit:cover; }
+.couple-name, .couple-parents { color:#0d1b2a; text-shadow:1px 1px 6px rgba(255,255,255,0.3); }
+
+/* --- EVENT CARDS --- */
+.event-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1200px; margin:0 auto; }
+.event-card { background: rgba(255,255,255,0.1); padding:25px; border-radius:15px; text-align:center; backdrop-filter:blur(6px); transition: transform 0.3s; }
+.event-card:hover { transform: translateY(-10px); }
+.event-icon { font-size:2.5rem; margin-bottom:15px; }
+.event-card h3, .event-card p { color:#0d1b2a; text-shadow:1px 1px 6px rgba(255,255,255,0.3); }
+
+/* --- COUNTDOWN --- */
+.countdown-container { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+.countdown-box { background: rgba(255,255,255,0.1); padding:20px; border-radius:15px; min-width:100px; text-align:center; backdrop-filter:blur(6px); animation: fadeInUp 1s ease forwards; }
+.countdown-box span { color:#0d1b2a; text-shadow:1px 1px 6px rgba(255,255,255,0.3); }
+
+/* --- STORY TIMELINE --- */
+#story-timeline {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#story-timeline .timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    background: rgba(0,0,50,0.5); /* efek kaca biru gelap */
+    border-radius: 20px;
+    padding: 20px 30px;
+    backdrop-filter: blur(10px);
+    text-align: left;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background: #003366; /* titik biru tua */
+    border-radius: 50%;
+}
+
+.timeline-year {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #003366; /* biru tua */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.2); /* efek kaca */
+}
+
+.timeline-content {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: #003366;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.1);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .timeline-item {
+        padding: 15px 20px;
+    }
+    .timeline-year { font-size: 1.5rem; }
+    .timeline-content { font-size: 1rem; }
+}
+
+/* GALERI */
+.gallery-container { position:relative; width:80%; max-width:800px; height:400px; overflow:hidden; margin:50px auto; border-radius:20px; }
+.gallery-slide { display:none; width:100%; height:100%; animation: fadeIn 1s ease; filter: brightness(0.8); }
+.gallery-slide.active { display:block; }
+.gallery-slide img { width:100%; height:100%; object-fit:cover; border-radius:20px; }
+.gallery-nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.3); color:#fff; border:none; padding:10px; font-size:2rem; cursor:pointer; border-radius:50%; transition:0.3s; z-index:2; }
+.gallery-nav:hover { background:rgba(0,0,0,0.6); }
+.gallery-nav.prev { left:10px; } 
+.gallery-nav.next { right:10px; }
+
+/* --- GIFTS SECTION --- */
+.gift-container { 
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-bottom: 50px;
+}
+
+.gift-card { 
+    background: rgba(0, 0, 50, 0.5); /* efek kaca biru gelap */
+    padding: 25px 20px; 
+    border-radius: 20px; 
+    text-align: center; 
+    color: #003366; /* teks biru tua */
+    min-width: 200px; 
+    backdrop-filter: blur(10px); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.gift-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.gift-card h3 { 
+    margin-bottom: 10px; 
+    font-size: 1.5rem; 
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.3); 
+}
+
+.account-number { 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    margin: 10px 0; 
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3); 
+}
+
+.gift-card button { 
+    background: #003366; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 15px; 
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+
+.gift-card button:hover { 
+    background: #001f33; 
+    transform: scale(1.05); 
+}
+
+.qris-img { 
+    width: 120px; 
+    margin-top: 10px; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- RSVP SECTION --- */
+.rsvp-form { 
+    background: rgba(0, 0, 50, 0.5); /* kaca biru gelap */
+    padding: 25px; 
+    border-radius: 20px; 
+    max-width: 400px; 
+    margin: 0 auto 50px auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    backdrop-filter: blur(10px); 
+}
+
+.rsvp-form input, .rsvp-form select { 
+    padding: 12px; 
+    border-radius: 10px; 
+    border: none; 
+    font-size: 1rem; 
+    color: #003366; 
+    background: rgba(255,255,255,0.7); 
+}
+
+.rsvp-form button { 
+    background: #003366; 
+    color: #fff; 
+    cursor: pointer; 
+    padding: 12px; 
+    border-radius: 15px; 
+    font-size: 1rem; 
+    transition: 0.3s; 
+}
+
+.rsvp-form button:hover { 
+    background: #001f33; 
+    transform: scale(1.05); 
+}
+
+/* Section title tetap konsisten */
+.section-title { 
+    font-family: 'Great Vibes', cursive; 
+    font-size: 2.8rem; 
+    color: #003366; 
+    margin-bottom: 30px; 
+    text-align: center; 
+    text-shadow: 1px 1px 8px rgba(255,255,255,0.3); 
+}
+
+/* --- FOOTER --- */
+footer { text-align:center; padding:20px; background: rgba(255,255,255,0.1); color:#0d1b2a; text-shadow:1px 1px 6px rgba(255,255,255,0.3); backdrop-filter:blur(6px); border-radius:10px; }
+
+/* --- ANIMATIONS --- */
+@keyframes floatText { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
+@keyframes fadeInUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+/* --- RESPONSIVE --- */
+@media(max-width:768px){ 
+    .couple-container{flex-direction:column;gap:20px;} 
+    .event-container{grid-template-columns:1fr;} 
+    .gallery-container{width:90%; height:300px;}
+    .hero h1{font-size:3rem;}
+}
