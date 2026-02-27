@@ -21,6 +21,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: blur(8px); /* tingkat blur */
     z-index:-1;
 }
 
@@ -33,6 +34,7 @@ body {
     height:100%;
     background: rgba(0,0,0,0.2);
 }
+
 
 /* --- RESPONSIVE MOBILE --- */
 @media(max-width:768px){
@@ -58,12 +60,22 @@ body {
 }
 
 /* --- COVER --- */
+/* CSS cover fade */
 .cover {
-    position:fixed; top:0; left:0; width:100%; height:100%;
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
     display:flex; justify-content:center; align-items:center;
     flex-direction:column; text-align:center;
-    z-index:1000; animation: fadeIn 1s ease-in-out;
+    background: rgba(255,255,255,0.1);
+    transition: opacity 0.5s ease;
+    z-index: 1000; animation: fadeIn 1s ease-in-out;
 }
+.cover.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .cover::before {
     content:""; position:absolute; top:0; left:0; width:100%; height:100%;
     background: rgba(255,255,255,0.1); /* overlay tipis agar foto terlihat */
@@ -148,10 +160,10 @@ body {
 
 .timeline-item {
     position: relative;
-    background: rgba(0,0,50,0.5); /* efek kaca biru gelap */
+    background: rgba(255,255,255,0.1); /* putih transparan */
     border-radius: 20px;
     padding: 20px 30px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* blur tetap sama */
     text-align: left;
 }
 
@@ -162,24 +174,24 @@ body {
     top: 20px;
     width: 10px;
     height: 10px;
-    background: #003366; /* titik biru tua */
+    background: #000000; /* titik hitam */
     border-radius: 50%;
 }
 
 .timeline-year {
     font-family: 'Great Vibes', cursive;
     font-size: 2rem;
-    color: #003366; /* biru tua */
+    color: #003366; /* hitam pekat */
     margin-bottom: 10px;
-    text-shadow: 1px 1px 3px rgba(255,255,255,0.2); /* efek kaca */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* sedikit efek soft */
 }
 
 .timeline-content {
     font-family: 'Lora', serif;
     font-size: 1.2rem;
-    color: #003366;
+    color: #111111; /* hitam */
     line-height: 1.6;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.1);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.05); /* opsional soft shadow */
 }
 
 /* RESPONSIVE */
@@ -211,7 +223,7 @@ body {
 }
 
 .gift-card { 
-    background: rgba(0, 0, 50, 0.5); /* efek kaca biru gelap */
+    background: rgba(255,255,255,0.1); /* efek kaca biru gelap */
     padding: 25px 20px; 
     border-radius: 20px; 
     text-align: center; 
@@ -263,7 +275,7 @@ body {
 
 /* --- RSVP SECTION --- */
 .rsvp-form { 
-    background: rgba(0, 0, 50, 0.5); /* kaca biru gelap */
+    background: rgba(255,255,255,0.1); /* kaca biru gelap */
     padding: 25px; 
     border-radius: 20px; 
     max-width: 400px; 
